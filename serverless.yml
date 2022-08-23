@@ -1,0 +1,21 @@
+org: architecturalurial
+console: true
+
+service: lambda-function
+
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  region: sa-east-1
+  apiGateway:
+    shouldStartNameWithService: true
+
+functions:
+  hello:
+    handler: handler.hello
+    events:
+      - http:
+          path: /hello 
+          method: get
